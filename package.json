@@ -1,0 +1,21 @@
+{
+  "name": "teamwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "chai": "^3.5.0",
+    "handlebars": "^4.0.6",
+    "jquery": "^3.2.1",
+    "mocha": "^3.3.0",
+    "navigo": "^4.6.2",
+    "systemjs": "^0.20.12",
+    "systemjs-plugin-babel": "0.0.21"
+  }
+}
