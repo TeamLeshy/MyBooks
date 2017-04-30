@@ -1,6 +1,10 @@
 'use strict';
 
-var books = [ {
+var books = [{
+    "title": "Don Quixote",
+    "author": "Miguel de Cervantes",
+    "img": "https://images-na.ssl-images-amazon.com/images/I/41d-rugLMRL._SL160_.jpg"
+}, {
     "title": "In Search of Lost Time",
     "author": "Marcel Proust",
     "img": "https://images-na.ssl-images-amazon.com/images/I/51me-a8zgcL._SL160_.jpg"
