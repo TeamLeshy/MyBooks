@@ -1,0 +1,22 @@
+body {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+h1 {
+    float: left;
+    margin-bottom: 0.5em;
+}
+
+.form-inline {
+    float: right;
+    margin-top: 1.5em;
+}
+
+.form-control {
+    margin-right: 0.5em;
+}
+
+.checkbox {
+    margin-right: 0.5em;
+}
