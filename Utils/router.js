@@ -6,10 +6,6 @@ router.on({
         let $body = $('body').text(''),
             $divWrapper = $('<div/>').addClass('wrapper'),
             $header = $('<h1/>').text('Welcome to our book store!'),
-            $btnStoreBooks = $('<button/>').attr({
-                'class': 'btn btn-primary',
-            }).text('Books we offer'),
-            $btnYourBooks = $('<button/>').attr('class', 'btn btn-primary').text('Books you have'),
             $form = $('<form/>').attr({
                 'class': 'form-inline',
             }),
@@ -37,7 +33,11 @@ router.on({
             }).text('Sign in / Register'),
             $divBooks = $('<div/>'),
             $btnBooks = $('<button/>').attr({
-                'class': 'btn btn-primary btn-lg btn-block',
+                'class': 'btn btn-primary btn-block',
+            }),
+            $btnAnchor = $('<a/>').attr({
+                'href': '#books',
+                'class': 'btn-primary btn-lg active btn-block'  
             }).text('View our books');
         $body.append($divWrapper);
         $form.append($divUser, $divChBox, $btnSignIn);
@@ -45,6 +45,7 @@ router.on({
         $divChBox.append($input, $label);
         ($body).append($btnBooks);
         $divWrapper.append($header, $form);
+        $btnBooks.append($btnAnchor);
     },
     'user': () => {
         let $body = $('body').text(''),
