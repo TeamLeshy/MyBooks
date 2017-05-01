@@ -10,7 +10,7 @@ h1 {
 
 .form-inline {
     float: right;
-    margin-top: 1.5em;
+    margin-top: 1.9em;
 }
 
 .form-control {
@@ -19,4 +19,8 @@ h1 {
 
 .checkbox {
     margin-right: 0.5em;
+}
+
+a {
+    text-decoration: none !important;
 }
