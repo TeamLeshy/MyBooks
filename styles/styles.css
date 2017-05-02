@@ -4,6 +4,8 @@ body {
     background-image: url('../Images/leshy.png');
     background-size: 100%;
     background-attachment: fixed;
+    background-size: cover;
+    
 }
 
 h1 {
