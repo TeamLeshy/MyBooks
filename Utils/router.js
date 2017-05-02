@@ -69,8 +69,9 @@ router.on({
         $btnYourBooks.appendTo($divWrapper);
         $divWrapper.appendTo($body);
 
+
         for (let i = 0; i < books.books.length; i += 1) {
-            let $bookWrapper = $('<div/>').attr({
+            let $bookWrapper2 = $('<div/>').attr({
                     'class': 'bookWrapper',
                 }),
                 $img = $('<img/>').attr({
@@ -81,12 +82,12 @@ router.on({
                 $author = $('<p/>').html(`<label>Author:</label> ${books.books[i].author}`),
                 $description = $('<p/>').html(`<label>Description:</label> ${books.books[i].description}`);
 
-            $img.appendTo($bookWrapper);
+            $img.appendTo($bookWrapper2);
             $title.appendTo($infoWrapper);
             $author.appendTo($infoWrapper);
             $description.appendTo($infoWrapper);
-            $infoWrapper.appendTo($bookWrapper);
-            $bookWrapper.appendTo($body);
+            $infoWrapper.appendTo($bookWrapper2);
+            $bookWrapper2.appendTo($body);
         }
 
 
