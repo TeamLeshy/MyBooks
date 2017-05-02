@@ -3,6 +3,7 @@ body {
     margin-right: 1em;
     background-image: url('../Images/leshy.png');
     background-size: 100%;
+    background-attachment: fixed;
 }
 
 h1 {
