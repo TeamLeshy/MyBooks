@@ -1,6 +1,6 @@
 'use strict';
 
-export var books = [{
+export const books = [{
     "author": "Miguel de Cervantes",
     "description": "Alonso Quixano, a retired country gentleman in his fifties, lives in an unnamed section of La Mancha with his niece and a housekeeper. He has become obsessed with books of chivalry, and believes th...",
     "img": "https://images-na.ssl-images-amazon.com/images/I/41d-rugLMRL._SL160_.jpg",
