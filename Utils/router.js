@@ -1,11 +1,13 @@
 'use strict';
 
+import * as books from 'books';
+
 const router = new Navigo(null, false);
 router.on({
     'home': () => {
         let $body = $('body').text(''),
             $divWrapper = $('<div/>').addClass('wrapper'),
-            $header = $('<h1/>').text('Welcome to our book store!'),
+            $header = $('<h1/>').html('<b>Welcome to our book store!</b>'),
             $form = $('<form/>').attr({
                 'class': 'form-inline',
             }),
@@ -37,16 +39,71 @@ router.on({
             }),
             $btnAnchor = $('<a/>').attr({
                 'href': '#books',
-                'class': 'btn-primary btn-lg active btn-block'  
+                'class': ' btn-lg active btn-block',
             }).text('View our books');
+
         $body.append($divWrapper);
         $form.append($divUser, $divChBox, $btnSignIn);
         $divUser.append($username, $password);
         $divChBox.append($input, $label);
-        ($body).append($btnBooks);
+        $body.append($btnBooks);
         $divWrapper.append($header, $form);
         $btnBooks.append($btnAnchor);
     },
+    'books': () => {
+        let $body = $('body').text(''),
+            $divWrapper = $('<div/>').attr({
+                'class': 'wrapper',
+            }),
+            $header = $('<h1/>').text('Books:'),
+            $btnYourBooks = $('<button/>').attr({
+                'class': 'flRight button btn btn-primary',
+            }),
+            $anchorYour = $('<a/>').attr({
+                'href': '#user',
+                'class': 'btn-lg active',
+            }).text('View your books');
+
+        $header.appendTo($divWrapper);
+        $anchorYour.appendTo($btnYourBooks);
+        $btnYourBooks.appendTo($divWrapper);
+        $divWrapper.appendTo($body);
+
+        for (let i = 0; i < books.books.length; i += 1) {
+            let $bookWrapper = $('<div/>').attr({
+                    'class': 'bookWrapper',
+                }),
+                $img = $('<img/>').attr({
+                    'src': books.books[i].img,
+                }),
+                $infoWrapper = $('<div/>'),
+                $title = $('<p/>').html(`<label>Title:</label> ${books.books[i].title}`),
+                $author = $('<p/>').html(`<label>Author:</label> ${books.books[i].author}`),
+                $description = $('<p/>').html(`<label>Description:</label> ${books.books[i].description}`);
+
+            $img.appendTo($bookWrapper);
+            $title.appendTo($infoWrapper);
+            $author.appendTo($infoWrapper);
+            $description.appendTo($infoWrapper);
+            $infoWrapper.appendTo($bookWrapper);
+            $bookWrapper.appendTo($body);
+        }
+
+
+
+
+    },
+
+
+
+
+
+
+
+
+
+
+
     'user': () => {
         let $body = $('body').text(''),
             $div = $('<div/>').text('USER div');
@@ -60,11 +117,6 @@ router.on({
     'user/:id': () => {
         let $body = $('body').text(''),
             $div = $('<div/>').text('USER 42 div');
-        $div.appendTo($body);
-    },
-    'books': () => {
-        let $body = $('body').text(''),
-            $div = $('<div/>').text('BOOKS div');
         $div.appendTo($body);
     }
 }).resolve();
