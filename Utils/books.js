@@ -207,7 +207,7 @@ export const books = [{
     "title": "Candide"
 }, {
     "author": "Charles Dickens",
-    "description": "The story of the abandoned waif who learns to survive through challenging encounters with distress and misfortune.",
+    "description": "The story follows the life of David Copperfield from childhood to maturity. David was born in Blunderstone, Suffolk, England, six months after the death of his father. David spends his early years...",
     "img": "http://ecx.images-amazon.com/images/I/51-GTHVUv7L._SL160_.jpg",
     "title": "David Copperfield"
 }, {
@@ -397,7 +397,7 @@ export const books = [{
     "title": "Decameron"
 }, {
     "author": "Ernest Hemingway",
-    "description": "The novel is told through the point of view of Lieutenant Frederic Henry, an American serving as an ambulance driver in the Italian army during World War I.",
+    "description": "The novel is divided into five books. In the first book, Frederic Henry, an American paramedic serving in the Italian Army is introduced to Catherine Barkley, an English nurse, by his good friend...",
     "img": "http://ecx.images-amazon.com/images/I/514omBy1BgL._SL160_.jpg",
     "title": "A Farewell to Arms"
 }, {
@@ -497,7 +497,7 @@ export const books = [{
     "title": "Sons and Lovers"
 }, {
     "author": "W. B. Yeats",
-    "description": "William Butler Yeats was an Irish poet, dramatist, and one of the foremost figures of 20th century literature.",
+    "description": "The Collected Poems of W. B. Yeats includes all of the poems authorized by Yeats for inclusion in his standard canon. Breathtaking in range, it encompasses the entire arc of his career, from luminous...",
     "img": "http://ecx.images-amazon.com/images/I/414v7UblakL._SL160_.jpg",
     "title": "Collected Poems of W. B. Yeats"
 }];
