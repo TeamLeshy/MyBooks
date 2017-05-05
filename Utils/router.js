@@ -58,12 +58,6 @@ router.on({
         $divWrapper.append($header, $form);
         $btnBooks.append($btnAnchor);
     },
-
-
-
-
-
-
     'registration': () => {
         let $body = $('body').text(''),
             $divHeader = $('<div/>').attr({
@@ -129,21 +123,6 @@ router.on({
 
         $btnSignIn.appendTo($body);
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     'books': () => {
         let $body = $('body').text(''),
             $divWrapper = $('<div/>').attr({
@@ -166,46 +145,35 @@ router.on({
         for (let i = 0; i < books.books.length; i += 1) {
             let $bookWrapper = $('<div/>').attr({
                     'class': 'bookWrapper',
+                    'style': 'float: left'
                 }),
                 $img = $('<img/>').attr({
                     'src': books.books[i].img,
                 }),
-                $infoWrapper = $('<div/>'),
-                $title = $('<p/>').html(`<label>Title:</label> ${books.books[i].title}`),
-                $author = $('<p/>').html(`<label>Author:</label> ${books.books[i].author}`),
-                $description = $('<p/>').html(`<label>Description:</label> ${books.books[i].description}`);
+                $infoWrapper = $('<div class=small-font />'),
+                $title = $('<p/>').html(`<label class=small-font >Title:</label> ${books.books[i].title}`),
+                $author = $('<p/>').html(`<label class=small-font >Author:</label> ${books.books[i].author}`),
+                $description = $('<p/>').html(`<label class=small-font >Description:</label> ${books.books[i].description}`),
+                $btnAdd = $('<button/>').attr({
+                    'class': 'flRight button btn btn-success small-font ',
+                }).text('Add this book'),
+                $p = $('<p/>').html('&nbsp <br />'),
+                $moreInfo = $('<a/>').attr({
+                    'class': 'green',
+                    'href': `${books.books[i].moreInfo}`
+                }).text('Click here for more info');
 
             $img.appendTo($bookWrapper);
-            $title.appendTo($infoWrapper);
-            $author.appendTo($infoWrapper);
-            $description.appendTo($infoWrapper);
+            $infoWrapper.append($title, $author, $description, $moreInfo);
             $infoWrapper.appendTo($bookWrapper);
+            $btnAdd.appendTo($bookWrapper);
+            $p.appendTo($body);
             $bookWrapper.appendTo($body);
         }
-
-
-
-
     },
-
-
-
-
-
-
-
-
-
-
-
     'user': () => {
         let $body = $('body').text(''),
             $div = $('<div/>').text('USER div');
-        $div.appendTo($body);
-    },
-    'login': () => {
-        let $body = $('body').text(''),
-            $div = $('<div/>').text('LOGIN div');
         $div.appendTo($body);
     },
     'user/:id': () => {

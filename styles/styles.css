@@ -57,7 +57,7 @@ img {
 }
 
 .flRight {
-    float: right
+    float: right;
 }
 
 .checkbox {
@@ -78,4 +78,19 @@ h1 {
 
 label {
     margin-left: 1rem;
+}
+
+.bookWrapper {
+    height: 15rem;
+    overflow: auto;
+}
+
+.small-font {
+    font-size: 1.3rem;
+}
+
+.green {
+    color: yellow;
+    font-size: 2rem;
+    padding-left: 1.5rem;
 }
