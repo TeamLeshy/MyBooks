@@ -9,14 +9,14 @@ router.on({
             $divWrapper = $('<div/>').addClass('wrapper'),
             $header = $('<h1/>').html('<b>Welcome to our book store!</b>'),
             $form = $('<form/>').attr({
-                'class': 'form-inline',
+                'class': 'form-inline'
             }),
             $divUser = $('<div/>').attr({
                 'class': 'form-group'
             }),
             $username = $('<input/>').attr({
                 'class': 'form-control',
-                'placeholder': 'Username',
+                'placeholder': 'Username'
             }),
             $password = $('<input/>').attr({
                 'class': 'form-control',
@@ -24,29 +24,29 @@ router.on({
                 'type': 'password'
             }),
             $divChBox = $('<div/>').attr({
-                'class': 'checkbox',
+                'class': 'checkbox'
             }),
             $input = $('<input/>').attr({
                 'type': 'checkbox'
             }),
             $label = $('<label/>').text('Remember me'),
             $btnSignIn = $('<button/>').attr({
-                'class': 'btn btn-default',
+                'class': 'btn btn-default'
             }).text('Sign in'),
             $btnRegister = $('<button/>').attr({
-                'class': 'reg btn btn-success',
+                'class': 'reg btn btn-success'
             }),
             $anchorRegistration = $('<a/>').attr({
                 'href': '#registration',
-                'class': 'resetCSS',
+                'class': 'resetCSS'
             }).text('Register'),
             $divBooks = $('<div/>'),
             $btnBooks = $('<button/>').attr({
-                'class': 'btn btn-primary btn-block',
+                'class': 'btn btn-primary btn-block'
             }),
             $btnAnchor = $('<a/>').attr({
                 'href': '#books',
-                'class': ' btn-lg active btn-block',
+                'class': ' btn-lg active btn-block'
             }).text('View our books');
 
         $body.append($divWrapper);
@@ -61,7 +61,7 @@ router.on({
     'registration': () => {
         let $body = $('body').text(''),
             $divHeader = $('<div/>').attr({
-                'style': 'display: inline-block'
+                'class': 'header'
             }),
             $header = $('<h1/>').html('<b>Register here:</b>'),
             $form = $('<form/>').attr({
@@ -75,7 +75,7 @@ router.on({
             }),
             $username = $('<input/>').attr({
                 'class': 'form-control',
-                'placeholder': 'Username',
+                'placeholder': 'Username'
             }),
             $divFG2 = $('<div/>').attr({
                 'class': 'form-group'
@@ -95,14 +95,14 @@ router.on({
                 'class': 'checkbox'
             }),
             $label = $('<label/>').text('Remember me').attr({
-                'style': 'margin-left:1.5rem'
+                'class': 'rememberMe'
             }),
             $input = $('<input/>').attr({
                 'type': 'checkbox',
                 'style': 'margin-left:1.5rem'
             }),
             $btnSignIn = $('<button/>').attr({
-                'class': 'btn btn-success',
+                'class': 'btn btn-success'
             }).text('Sign up');
 
         $divHeader.append($header);
@@ -126,15 +126,15 @@ router.on({
     'books': () => {
         let $body = $('body').text(''),
             $divWrapper = $('<div/>').attr({
-                'class': 'wrapper',
+                'class': 'wrapper'
             }),
             $header = $('<h1/>').html('<b>Books:</b>'),
             $btnYourBooks = $('<button/>').attr({
-                'class': 'flRight button btn btn-primary',
+                'class': 'flRight button btn btn-primary hidden'
             }),
             $anchorYour = $('<a/>').attr({
                 'href': '#user',
-                'class': 'btn-lg active',
+                'class': 'btn-lg active'
             }).text('View your books');
 
         $header.appendTo($divWrapper);
@@ -144,8 +144,7 @@ router.on({
 
         for (let i = 0; i < books.books.length; i += 1) {
             let $bookWrapper = $('<div/>').attr({
-                    'class': 'bookWrapper',
-                    'style': 'float: left'
+                    'class': 'bookWrapper'
                 }),
                 $img = $('<img/>').attr({
                     'src': books.books[i].img,
@@ -155,7 +154,7 @@ router.on({
                 $author = $('<p/>').html(`<label class=small-font >Author:</label> ${books.books[i].author}`),
                 $description = $('<p/>').html(`<label class=small-font >Description:</label> ${books.books[i].description}`),
                 $btnAdd = $('<button/>').attr({
-                    'class': 'flRight button btn btn-success small-font ',
+                    'class': 'flRight button btn btn-success small-font '
                 }).text('Add this book'),
                 $p = $('<p/>').html('&nbsp <br />'),
                 $moreInfo = $('<a/>').attr({
