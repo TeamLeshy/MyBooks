@@ -67,6 +67,28 @@ router.on({
             $form = $('<form/>').attr({
                 'class': 'form-horizontal'
             }),
+
+            $divFG11 = $('<div/>').attr({
+                'class': 'form-group'
+            }),
+            $divName = $('<div/>').attr({
+                'class': 'col-sm-3'
+            }),
+            $name = $('<input/>').attr({
+                'class': 'form-control',
+                'placeholder': 'First Name'
+            }),
+            $divFG12 = $('<div/>').attr({
+                'class': 'form-group'
+            }),
+            $divLName = $('<div/>').attr({
+                'class': 'col-sm-3'
+            }),
+            $lastname = $('<input/>').attr({
+                'class': 'form-control',
+                'placeholder': 'Last Name'
+            }),
+
             $divFG1 = $('<div/>').attr({
                 'class': 'form-group'
             }),
@@ -107,6 +129,14 @@ router.on({
 
         $divHeader.append($header);
         $body.append($divHeader);
+
+        $divFG11.appendTo($form);
+        $divName.appendTo($divFG11);
+        $name.appendTo($divName);
+        $divFG12.appendTo($form);
+        $divLName.appendTo($divFG12);
+        $lastname.appendTo($divLName);
+
         $divFG1.appendTo($form);
         $divUser.appendTo($divFG1);
         $username.appendTo($divUser);
@@ -118,7 +148,7 @@ router.on({
         $label.appendTo($divChBox);
 
         $divChBox.appendTo($divFG3);
-        $form.append($divFG1, $divFG2, $divFG3);
+        $form.append($divFG11,$divFG12,$divFG1, $divFG2, $divFG3);
         $form.appendTo($body);
 
         $btnSignIn.appendTo($body);
@@ -144,8 +174,8 @@ router.on({
 
         for (let i = 0; i < books.books.length; i += 1) {
             let $bookWrapper = $('<div/>').attr({
-                    'class': 'bookWrapper'
-                }),
+                'class': 'bookWrapper'
+            }),
                 $img = $('<img/>').attr({
                     'src': books.books[i].img,
                 }),
