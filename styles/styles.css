@@ -105,12 +105,6 @@ label {
     display: inline-block;
 }
 
-<<<<<<< HEAD
-.share {
-    position: fixed;
-    bottom: 20px;
-    width: 1000px;
-=======
 .add,
 .remove {
     margin-top: 0rem;
@@ -146,5 +140,4 @@ div.checkbox.remember {
 
 label.remember {
     margin-left: 1rem;
->>>>>>> 9e0d8120a4fc1095e0726ebc218d3abd7a1831b6
 }
