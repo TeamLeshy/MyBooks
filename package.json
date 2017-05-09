@@ -16,6 +16,7 @@
     "mocha": "^3.3.0",
     "navigo": "^4.6.2",
     "systemjs": "^0.20.12",
-    "systemjs-plugin-babel": "0.0.21"
+    "systemjs-plugin-babel": "0.0.21",
+    "jquery.socialshareprivacy":"1.4.6"
   }
 }

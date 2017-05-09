@@ -47,7 +47,13 @@ router.on({
             $btnAnchor = $('<a/>').attr({
                 'href': '#books',
                 'class': ' btn-lg active btn-block'
-            }).text('View our books');
+            }).text('View our books'),
+            // $str = $("<script type='text/javascript'>(function () {var s = document.createElement('script');var t = document.getElementsByTagName('script')[0];s.type = 'text/javascript';s.async = true;s.src = 'https://panzi.github.io/SocialSharePrivacy/javascripts/jquery.socialshareprivacy.min.autoload.js';t.parentNode.insertBefore(s, t);})();</script>"),
+           
+           
+           
+            $divSocial = $('<div/>') .addClass("share");
+
 
         $body.append($divWrapper);
         $btnRegister.append($anchorRegistration);
@@ -57,6 +63,10 @@ router.on({
         $body.append($btnBooks);
         $divWrapper.append($header, $form);
         $btnBooks.append($btnAnchor);
+        
+        $divSocial.appendTo($body);
+        
+
     },
     'registration': () => {
         let $body = $('body').text(''),
@@ -148,10 +158,32 @@ router.on({
         $label.appendTo($divChBox);
 
         $divChBox.appendTo($divFG3);
-        $form.append($divFG11,$divFG12,$divFG1, $divFG2, $divFG3);
+        $form.append($divFG11, $divFG12, $divFG1, $divFG2, $divFG3);
         $form.appendTo($body);
 
         $btnSignIn.appendTo($body);
+
+
+
+
+        $btnSignIn.click(function (e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "api/users",
+                data: {
+                    id: $(this).val(), // < note use of 'this' here
+                    access_token: $("#access_token").val()
+                },
+                success: function (result) {
+                    alert('ok');
+                },
+                error: function (result) {
+                    alert('error');
+                }
+            });
+        });
+
     },
     'books': () => {
         let $body = $('body').text(''),
