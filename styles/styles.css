@@ -10,6 +10,7 @@ h1 {
     float: left;
     margin-bottom: 0.5rem;
     color: white;
+    font-weight: bold;
 }
 
 .form-inline {
@@ -23,6 +24,8 @@ h1 {
 
 .checkbox {
     margin-right: 0.5rem;
+    padding: 0rem !important;
+    color: white;
 }
 
 a {
@@ -35,7 +38,8 @@ a {
 }
 
 button.reg {
-    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .wrapper {
@@ -57,11 +61,8 @@ img {
 }
 
 .flRight {
+    position: relative;
     float: right;
-}
-
-.checkbox {
-    color: white;
 }
 
 .resetCSS {
@@ -77,7 +78,8 @@ h1 {
 }
 
 label {
-    margin-left: 1rem;
+    /*margin-left: 1.5rem;*/
+    padding-left: 0rem !important;
 }
 
 .bookWrapper {
@@ -89,22 +91,60 @@ label {
     font-size: 1.3rem;
 }
 
-.green {
+.yellow {
     color: yellow;
     font-size: 2rem;
     padding-left: 1.5rem;
 }
 
 .rememberMe {
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .header {
     display: inline-block;
 }
 
+<<<<<<< HEAD
 .share {
     position: fixed;
     bottom: 20px;
     width: 1000px;
+=======
+.add,
+.remove {
+    margin-top: 0rem;
+}
+
+.marginBottom {
+    margin-bottom: 3rem;
+}
+
+form.form-inline,
+input.form-control {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+div.checkbox {
+    padding-left: 2rem;
+}
+
+button.btn.btn-default {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+div.checkbox {
+    padding-left: 3.5rem !important;
+}
+
+div.checkbox.remember {
+    padding-left: 2rem !important;
+}
+
+label.remember {
+    margin-left: 1rem;
+>>>>>>> 9e0d8120a4fc1095e0726ebc218d3abd7a1831b6
 }
