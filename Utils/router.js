@@ -1,13 +1,15 @@
 'use strict';
 
 import * as books from 'books';
+import * as userBooks from 'userBooks';
+import * as myBooks from 'myBooks';
 
 const router = new Navigo(null, false);
 router.on({
     'home': () => {
         let $body = $('body').text(''),
             $divWrapper = $('<div/>').addClass('wrapper'),
-            $header = $('<h1/>').html('<b>Welcome to our book store!</b>'),
+            $header = $('<h1/>').html('Welcome to our book store!'),
             $form = $('<form/>').attr({
                 'class': 'form-inline'
             }),
@@ -24,12 +26,14 @@ router.on({
                 'type': 'password'
             }),
             $divChBox = $('<div/>').attr({
-                'class': 'checkbox'
+                'class': 'checkbox remember'
             }),
             $input = $('<input/>').attr({
-                'type': 'checkbox'
+                'type': 'checkbox',
             }),
-            $label = $('<label/>').text('Remember me'),
+            $label = $('<label/>').attr({
+                'class': 'remember'
+            }).text('Remember me'),
             $btnSignIn = $('<button/>').attr({
                 'class': 'btn btn-default'
             }).text('Sign in'),
@@ -63,11 +67,10 @@ router.on({
             $divHeader = $('<div/>').attr({
                 'class': 'header'
             }),
-            $header = $('<h1/>').html('<b>Register here:</b>'),
+            $header = $('<h1/>').html('Register here:'),
             $form = $('<form/>').attr({
                 'class': 'form-horizontal'
             }),
-
             $divFG11 = $('<div/>').attr({
                 'class': 'form-group'
             }),
@@ -88,7 +91,6 @@ router.on({
                 'class': 'form-control',
                 'placeholder': 'Last Name'
             }),
-
             $divFG1 = $('<div/>').attr({
                 'class': 'form-group'
             }),
@@ -120,8 +122,7 @@ router.on({
                 'class': 'rememberMe'
             }),
             $input = $('<input/>').attr({
-                'type': 'checkbox',
-                'style': 'margin-left:1.5rem'
+                'type': 'checkbox'
             }),
             $btnSignIn = $('<button/>').attr({
                 'class': 'btn btn-success'
@@ -137,6 +138,7 @@ router.on({
         $divLName.appendTo($divFG12);
         $lastname.appendTo($divLName);
 
+
         $divFG1.appendTo($form);
         $divUser.appendTo($divFG1);
         $username.appendTo($divUser);
@@ -148,70 +150,134 @@ router.on({
         $label.appendTo($divChBox);
 
         $divChBox.appendTo($divFG3);
-        $form.append($divFG11,$divFG12,$divFG1, $divFG2, $divFG3);
+        $form.append($divFG11, $divFG12, $divFG1, $divFG2, $divFG3);
         $form.appendTo($body);
 
         $btnSignIn.appendTo($body);
     },
     'books': () => {
-        let $body = $('body').text(''),
-            $divWrapper = $('<div/>').attr({
-                'class': 'wrapper'
-            }),
-            $header = $('<h1/>').html('<b>Books:</b>'),
-            $btnYourBooks = $('<button/>').attr({
-                'class': 'flRight button btn btn-primary hidden'
-            }),
-            $anchorYour = $('<a/>').attr({
-                'href': '#user',
-                'class': 'btn-lg active'
-            }).text('View your books');
+        console.log(myBooks.myBooks);
 
-        $header.appendTo($divWrapper);
-        $anchorYour.appendTo($btnYourBooks);
-        $btnYourBooks.appendTo($divWrapper);
-        $divWrapper.appendTo($body);
 
-        for (let i = 0; i < books.books.length; i += 1) {
-            let $bookWrapper = $('<div/>').attr({
-                'class': 'bookWrapper'
-            }),
-                $img = $('<img/>').attr({
-                    'src': books.books[i].img,
+        let myPromise = new Promise((resolve, reject) => {
+            let $body = $('body').text(''),
+                $divWrapper = $('<div/>').attr({
+                    'class': 'wrapper'
                 }),
-                $infoWrapper = $('<div class=small-font />'),
-                $title = $('<p/>').html(`<label class=small-font >Title:</label> ${books.books[i].title}`),
-                $author = $('<p/>').html(`<label class=small-font >Author:</label> ${books.books[i].author}`),
-                $description = $('<p/>').html(`<label class=small-font >Description:</label> ${books.books[i].description}`),
-                $btnAdd = $('<button/>').attr({
-                    'class': 'flRight button btn btn-success small-font '
-                }).text('Add this book'),
-                $p = $('<p/>').html('&nbsp <br />'),
-                $moreInfo = $('<a/>').attr({
-                    'class': 'green',
-                    'href': `${books.books[i].moreInfo}`
-                }).text('Click here for more info');
+                $header = $('<h1/>').html('Books:'),
+                $btnYourBooks = $('<button/>').attr({
+                    'class': 'flRight button btn btn-primary '
+                }),
+                $anchorYourBooks = $('<a/>').attr({
+                    'href': '#user/:id', // id trqbva da se vzeme sled registraciqta ${id}
+                    'class': 'btn-lg active'
+                }).text('View your books');
 
-            $img.appendTo($bookWrapper);
-            $infoWrapper.append($title, $author, $description, $moreInfo);
-            $infoWrapper.appendTo($bookWrapper);
-            $btnAdd.appendTo($bookWrapper);
-            $p.appendTo($body);
-            $bookWrapper.appendTo($body);
-        }
-    },
-    'user': () => {
-        let $body = $('body').text(''),
-            $div = $('<div/>').text('USER div');
-        $div.appendTo($body);
+            $header.appendTo($divWrapper);
+            $anchorYourBooks.appendTo($btnYourBooks);
+            $btnYourBooks.appendTo($divWrapper);
+            $divWrapper.appendTo($body);
+
+            if (myBooks.myBooks.length === 0) {
+                books.books.forEach((element) => {
+                    let $bookWrapper = $('<div/>').attr({
+                            'class': 'bookWrapper'
+                        }),
+                        $img = $('<img/>').attr({
+                            'src': element.img,
+                        }),
+                        $infoWrapper = $('<div class=small-font />'),
+                        $title = $('<p/>').html(`<label class=small-font >Title:&nbsp</label>${element.title}`),
+                        $author = $('<p/>').html(`<label class=small-font >Author:&nbsp</label>${element.author}`),
+                        $description = $('<p/>').html(`<label class=small-font >Description:&nbsp</label>${element.description}`),
+                        $p = $('<p/>').html('&nbsp <br />'),
+                        $moreInfo = $('<a/>').attr({
+                            'class': 'yellow',
+                            'href': `${element.moreInfo}`
+                        }).text('Click here for more info'),
+                        $btnAdd = $('<button/>').attr({
+                            'class': 'add flRight button btn btn-success small-font'
+                        }).text('Add this book');
+
+                    $img.appendTo($bookWrapper);
+                    $infoWrapper.append($title, $author, $description, $moreInfo);
+                    $infoWrapper.appendTo($bookWrapper);
+                    $btnAdd.appendTo($bookWrapper);
+
+                    myBooks.myBooks.push($bookWrapper);
+                });
+            }
+
+            myBooks.myBooks.forEach((element) => {
+                let $p = $('<p/>').html('&nbsp <br />');
+                $body.append($p, element[0] || element);
+            });
+
+            resolve();
+        });
+        myPromise.then(() => {
+            let $allBtnsAdd = $('div').find('.button.small-font').toArray();
+
+            $allBtnsAdd.forEach((element) => {
+                element.onclick = (event) => {
+                    let $clickedAddBtn = $(`.${event.target.className}`).prevObject[0].activeElement,
+                        indexOfclickedAddBtn = $allBtnsAdd.indexOf($clickedAddBtn),
+                        divToAdd = myBooks.myBooks[indexOfclickedAddBtn][0];
+
+                    userBooks.userBooks.push(divToAdd);
+                    myBooks.myBooks.splice(indexOfclickedAddBtn, 1);
+                    $allBtnsAdd.splice(indexOfclickedAddBtn, 1);
+                    divToAdd.previousElementSibling.remove();
+                    divToAdd.remove();
+                }
+            });
+        });
     },
     'user/:id': () => {
-        let $body = $('body').text(''),
-            $div = $('<div/>').text('USER 42 div');
-        $div.appendTo($body);
+        let myPromise = new Promise((resolve, reject) => {
+            let $body = $('body').text(''),
+                $header = $('<h1/>').addClass('marginBottom').html('Your books:'),
+                $btnOurBooks = $('<button/>').attr({
+                    'class': 'flRight button btn btn-primary '
+                }),
+                $anchorYourBooks = $('<a/>').attr({
+                    'href': '#books', // id trqbva da se vzeme sled registraciqta ${id}
+                    'class': 'btn-lg active'
+                }).text('View our books');
+
+            $btnOurBooks.append($anchorYourBooks);
+            $body.append($header, $btnOurBooks);
+
+            userBooks.userBooks.forEach((element) => {
+                element.lastElementChild.className = 'remove flRight button btn btn-danger small-font';
+                element.lastElementChild.innerText = 'Remove this book';
+                let $p = $('<p/>').html('&nbsp <br />');
+                $body.append($p, element);
+            });
+
+            resolve();
+        });
+        myPromise.then(() => {
+            var $allBtnsRemove = $('div').find('.button.small-font').toArray();
+
+            $allBtnsRemove.forEach((element) => {
+                element.onclick = (event) => {
+                    let $clickedRemoveBtn = $(`.${event.target.className}`).prevObject[0].activeElement,
+                        indexOfclickedRemoveBtn = $allBtnsRemove.indexOf($clickedRemoveBtn),
+                        divToRemove = userBooks.userBooks[indexOfclickedRemoveBtn];
+
+                    element.className = 'add flRight button btn btn-success small-font';
+                    element.innerText = 'Add this book';
+                    myBooks.myBooks.push(divToRemove);
+                    userBooks.userBooks.splice(indexOfclickedRemoveBtn, 1);
+                    $allBtnsRemove.splice(indexOfclickedRemoveBtn, 1);
+                    divToRemove.previousElementSibling.remove();
+                    divToRemove.remove();
+                }
+            });
+        });
     }
 }).resolve();
-
 
 export {
     router
