@@ -156,9 +156,6 @@ router.on({
         $btnSignIn.appendTo($body);
     },
     'books': () => {
-        console.log(myBooks.myBooks);
-
-
         let myPromise = new Promise((resolve, reject) => {
             let $body = $('body').text(''),
                 $divWrapper = $('<div/>').attr({
